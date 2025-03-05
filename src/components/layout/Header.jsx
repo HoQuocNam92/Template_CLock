@@ -6,21 +6,33 @@ const Header = () => {
       <h1 className="text-2xl font-bold ">HANDTIME</h1>
       <div className="font-[Roboto]">
         <a
-          className="inline-block px-[25px] py-[5px]  bg-[#8019c8] text-white rounded-sm "
+          className="inline-block px-[25px] py-[5px]     bg-[#8019c8] rounded-sm  text-white  "
           href="/"
         >
           HOME
         </a>
-        <a className="inline-block px-[25px] py-[5px]" href="/about">
+        <a
+          className="inline-block px-[25px] py-[5px] hover:bg-[#8019c8] rounded-sm   "
+          href="/about"
+        >
           ABOUT
         </a>
-        <a className="inline-block px-[25px] py-[5px]" href="/products">
+        <a
+          className="inline-block px-[25px] py-[5px] hover:bg-[#8019c8] rounded-sm   "
+          href="/products"
+        >
           PRODUCTS
         </a>
-        <a className="inline-block px-[25px] py-[5px]" href="/testimonial">
+        <a
+          className="inline-block px-[25px] py-[5px] hover:bg-[#8019c8] rounded-sm   "
+          href="/testimonial"
+        >
           TESTIMONIAL
         </a>
-        <a className="inline-block px-[25px] py-[5px]" href="/contact">
+        <a
+          className="inline-block px-[25px] py-[5px] hover:bg-[#8019c8] rounded-sm   "
+          href="/contact"
+        >
           CONTACT US
         </a>
       </div>
