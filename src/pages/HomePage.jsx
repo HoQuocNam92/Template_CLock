@@ -1,5 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 const HomePage = () => {
+  const navigate = useNavigate(); // Dùng để chuyển hướng
+
   return (
     <div>
       <div className="relative">
@@ -12,10 +16,16 @@ const HomePage = () => {
             suscipit.
           </p>
           <div className="m-[-5px]">
-            <button className="m-[5px] cursor-pointer hover:bg-[#118454] py-[10px] px-[48px] bg-[#19c880] text-white">
+            <button
+              onClick={() => navigate("/details")}
+              className=" m-[5px] cursor-pointer hover:bg-[#118454] py-[10px] px-[48px] bg-[#19c880] text-white"
+            >
               Contact Us
             </button>
-            <button className="m-[5px] cursor-pointer hover:bg-[#541184] py-[10px] px-[48px] bg-[#8019c8] text-white">
+            <button
+              onClick={() => navigate("/details")}
+              className=" m-[5px] cursor-pointer hover:bg-[#541184] py-[10px] px-[48px] bg-[#8019c8] text-white"
+            >
               About Us
             </button>
           </div>
@@ -74,7 +84,10 @@ const HomePage = () => {
             There are many variations of passages of Lorem Ipsum There are many
             variations of passages of Lorem Ipsum
           </p>
-          <button className="block mt-[35px] px-[35px] py-[8px] bg-[#8019c8] text-white rounded-sm hover:bg-[#541184] cursor-pointer">
+          <button
+            onClick={() => navigate("/details")}
+            className=" block mt-[35px] px-[35px] py-[8px] bg-[#8019c8] text-white rounded-sm hover:bg-[#541184] cursor-pointer"
+          >
             Read More
           </button>
         </div>
@@ -114,7 +127,10 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="mt-[35px] text-center">
-                <button className="px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]">
+                <button
+                  onClick={() => navigate("/details")}
+                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
+                >
                   Add To Cart
                 </button>
               </div>
@@ -146,7 +162,10 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="mt-[35px] text-center">
-                <button className="px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]">
+                <button
+                  onClick={() => navigate("/details")}
+                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
+                >
                   Add To Cart
                 </button>
               </div>
@@ -178,7 +197,10 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="mt-[35px] text-center">
-                <button className="px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]">
+                <button
+                  onClick={() => navigate("/details")}
+                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
+                >
                   Add To Cart
                 </button>
               </div>
@@ -221,7 +243,10 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="mt-[35px] text-center">
-                <button className="px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]">
+                <button
+                  onClick={() => navigate("/details")}
+                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
+                >
                   Add To Cart
                 </button>
               </div>
@@ -253,7 +278,10 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="mt-[35px] text-center">
-                <button className="px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]">
+                <button
+                  onClick={() => navigate("/details")}
+                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
+                >
                   Add To Cart
                 </button>
               </div>
@@ -285,7 +313,10 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="mt-[35px] text-center">
-                <button className="px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]">
+                <button
+                  onClick={() => navigate("/details")}
+                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
+                >
                   Add To Cart
                 </button>
               </div>
@@ -328,7 +359,10 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="mt-[35px] text-center">
-                <button className="px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]">
+                <button
+                  onClick={() => navigate("/details")}
+                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
+                >
                   Add To Cart
                 </button>
               </div>
@@ -360,7 +394,10 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="mt-[35px] text-center">
-                <button className="px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]">
+                <button
+                  onClick={() => navigate("/details")}
+                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
+                >
                   Add To Cart
                 </button>
               </div>
@@ -392,10 +429,97 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="mt-[35px] text-center">
-                <button className="px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]">
+                <button
+                  onClick={() => navigate("/details")}
+                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
+                >
                   Add To Cart
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="py-[90px]">
+        <div className="w-[1170px] m-auto">
+          <div>
+            <h2 className="mb-[25px] text-[32px] font-bold">CONTACT US</h2>
+          </div>
+          <div className="mx-[-14px] grid grid-cols-2">
+            <div className="px-[15px]">
+              <div>
+                <input
+                  className="w-full bg-[#fff] shadow-[0_0_5px_3px_rgba(0,0,0,0.1)] mb-[25px] pl-[15px] py-[10px]"
+                  type="text"
+                  placeholder="Your Name"
+                />
+              </div>
+              <div>
+                <input
+                  className="w-full bg-[#fff] shadow-[0_0_5px_3px_rgba(0,0,0,0.1)] mb-[25px] pl-[15px] py-[10px]"
+                  type="text"
+                  placeholder="Phone Number"
+                />
+              </div>
+              <div>
+                <input
+                  className="w-full bg-[#fff] shadow-[0_0_5px_3px_rgba(0,0,0,0.1)] mb-[25px] pl-[15px] py-[10px]"
+                  type="text"
+                  placeholder="Email"
+                />
+              </div>
+              <div>
+                <input
+                  className="w-full bg-[#fff] shadow-[0_0_5px_3px_rgba(0,0,0,0.1)] mb-[25px] pl-[15px] py-[10px]"
+                  type="text"
+                  placeholder="Message"
+                />
+              </div>
+              <button
+                onClick={() => navigate("/details")}
+                className=" bg-[rgb(128,25,200)] rounded-sm hover:bg-[rgb(84,17,132)] cursor-pointer px-[50px] py-[10px] text-white"
+              >
+                SEND
+              </button>
+            </div>
+            <div className="px-[15px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.044209031262!2d106.65658297570354!3d10.807926058610532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175293bf882785b%3A0x5a3e84b695f6015d!2zTmjDoCBnYSBow6BuZyBow7NhIHF14buRYyB04bq_IFPDom4gYmF5IFTDom4gU8ahbiBOaOG6pXQsIE5ndXnhu4VuIFbEg24gVsSpbmgsIFBoxrDhu51uZyA0LCBUw6JuIELDrG5oLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1741341797163!5m2!1svi!2s"
+                width="555"
+                height="450"
+                style={{ border: 0 }}
+                allowFullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div className="w-[1170px] m-auto">
+          <div className="text-center text-[32px] font-bold  ">
+            <h2>Testimonial</h2>
+          </div>
+
+          <div className="flex items-center my-12 relative justify-center">
+            <div className="relative z-10 -ml-10">
+              <img
+                className="rounded-full w-24 h-24 border-4 border-green-500 bg-white shadow-lg"
+                src="/images/client.jpg"
+                alt="User"
+              />
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md ml-[-30px] relative z-0 max-w-4xl ">
+              <h5 className="text-purple-700 font-bold text-lg">Morojink</h5>
+              <h6 className="text-green-500 font-semibold">Customer</h6>
+              <p className="text-gray-700 mt-2 text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugia
+              </p>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import MainLayout from "@components/layout/MainLayout";
 import HomePage from "@pages/HomePage";
+import ProductDetail from "@pages/ProductDetail";
 const routes = () => {
   return (
     <Routes>
@@ -10,6 +11,14 @@ const routes = () => {
         element={
           <MainLayout>
             <HomePage />
+          </MainLayout>
+        }
+      />
+      <Route
+        path="/details"
+        element={
+          <MainLayout>
+            <ProductDetail />
           </MainLayout>
         }
       />

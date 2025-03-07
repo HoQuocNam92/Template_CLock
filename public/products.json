@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "name": "Apple Watch Series 9",
+    "price": "10,000,000 VND",
+    "image": "/images/w1.png",
+    "description": "Đồng hồ thông minh cao cấp của Apple với chip S9."
+  },
+  {
+    "id": "2",
+    "name": "Samsung Galaxy Watch 6",
+    "price": "7,500,000 VND",
+    "image": "/images/w2.png",
+    "description": "Đồng hồ Samsung mới nhất với thiết kế sang trọng."
+  }
+]
