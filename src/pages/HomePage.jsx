@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-  const navigate = useNavigate(); // Dùng để chuyển hướng
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    fetch("/products.json")
+      .then((response) => response.json())
+      .then((data) => setProduct(data))
+      .catch((error) => console.error("Error:", error));
+  }, []);
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -92,7 +100,7 @@ const HomePage = () => {
           </button>
         </div>
       </div>
-      <div className="bg-[#f1f1f1] mb-[45px]">
+      {/* <div className="bg-[#f1f1f1] mb-[45px]">
         <div className="w-[1170px] max-w-full m-auto  ">
           <div className="mb-[45px]">
             <h3 className="text-[24px] py-[10px] px-[20px] font-bold text-white bg-[#19c880] inline-block ">
@@ -103,11 +111,14 @@ const HomePage = () => {
             <div className="mx-[10px] mb-[45px]">
               <div className="bg-[#fff] p-[15px] ">
                 <div className="flex justify-center my-[45px]">
-                  <img
-                    src="/images/w1.png"
-                    className="h-[175px]"
-                    alt="watches"
-                  />
+                  {product.map((item, index) => (
+                    <img
+                      key={index}
+                      src={item.image}
+                      className="h-[175px]"
+                      alt="watches"
+                    />
+                  ))}
                 </div>
                 <div className="flex justify-between text-center font-bold">
                   <div>
@@ -135,311 +146,53 @@ const HomePage = () => {
                 </button>
               </div>
             </div>
-            <div className="mx-[10px] mb-[45px]">
-              <div className="bg-[#fff] p-[15px] ">
-                <div className="flex justify-center my-[45px]">
-                  <img
-                    src="/images/w2.png"
-                    className="h-[175px]"
-                    alt="watches"
-                  />
-                </div>
-                <div className="flex justify-between text-center font-bold">
-                  <div>
-                    <h6>Men's Watch</h6>
-                    <h5>$ 300</h5>
-                  </div>
-                  <div>
-                    <h6> Like</h6>
-                    <div>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-[35px] text-center">
-                <button
-                  onClick={() => navigate("/details")}
-                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
-                >
-                  Add To Cart
-                </button>
-              </div>
-            </div>
-            <div className="mx-[10px] mb-[45px]">
-              <div className="bg-[#fff] p-[15px] ">
-                <div className="flex justify-center my-[45px]">
-                  <img
-                    src="/images/w3.png"
-                    className="h-[175px]"
-                    alt="watches"
-                  />
-                </div>
-                <div className="flex justify-between text-center font-bold">
-                  <div>
-                    <h6>Men's Watch</h6>
-                    <h5>$ 300</h5>
-                  </div>
-                  <div>
-                    <h6> Like</h6>
-                    <div>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-[35px] text-center">
-                <button
-                  onClick={() => navigate("/details")}
-                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
-                >
-                  Add To Cart
-                </button>
-              </div>
-            </div>
+          </div>
+          <div className="mt-[35px] text-center">
+            <button
+              onClick={() => navigate("/details")}
+              className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
+            >
+              Add To Cart
+            </button>
           </div>
         </div>
+      </div> */}
+      <div className="grid grid-cols-3 gap-6 w-[1170px] max-w-full m-auto  ">
+        {product.map((item) => (
+          <div
+            key={item.id}
+            id={`product-${item.id}`} // Gắn id cho từng sản phẩm
+            className="mx-[10px] mb-[45px] bg-[#fff] p-[15px] shadow-md rounded-lg"
+          >
+            <div className="flex justify-center my-[45px]">
+              <img src={item.image} className="h-[175px]" alt={item.name} />
+            </div>
+            <div className="flex justify-between text-center font-bold">
+              <div>
+                <h6>{item.name}</h6>
+                <h5>${item.price}</h5>
+              </div>
+              <div>
+                <h6>Like</h6>
+                <div>
+                  {[...Array(5)].map((_, i) => (
+                    <i key={i} className="text-[yellow] fa-solid fa-star"></i>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="mt-[35px] text-center">
+              <button
+                onClick={() => navigate(`/details/${item.id}`)} // Điều hướng với id
+                className="px-[30px] text-white rounded-lg cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
+              >
+                Add To Cart
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
-      <div className="bg-[#f1f1f1] mb-[45px]">
-        <div className="w-[1170px] max-w-full m-auto  ">
-          <div className="mb-[45px]">
-            <h3 className="text-[24px] py-[10px] px-[20px] font-bold text-white bg-[#19c880] inline-block ">
-              Top Sale Watches
-            </h3>
-          </div>
-          <div className="grid grid-cols-3  ">
-            <div className="mx-[10px] mb-[45px]">
-              <div className="bg-[#fff] p-[15px] ">
-                <div className="flex justify-center my-[45px]">
-                  <img
-                    src="/images/w3.png"
-                    className="h-[175px]"
-                    alt="watches"
-                  />
-                </div>
-                <div className="flex justify-between text-center font-bold">
-                  <div>
-                    <h6>Men's Watch</h6>
-                    <h5>$ 300</h5>
-                  </div>
-                  <div>
-                    <h6> Like</h6>
-                    <div>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-[35px] text-center">
-                <button
-                  onClick={() => navigate("/details")}
-                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
-                >
-                  Add To Cart
-                </button>
-              </div>
-            </div>
-            <div className="mx-[10px] mb-[45px]">
-              <div className="bg-[#fff] p-[15px] ">
-                <div className="flex justify-center my-[45px]">
-                  <img
-                    src="/images/w4.png"
-                    className="h-[175px]"
-                    alt="watches"
-                  />
-                </div>
-                <div className="flex justify-between text-center font-bold">
-                  <div>
-                    <h6>Men's Watch</h6>
-                    <h5>$ 300</h5>
-                  </div>
-                  <div>
-                    <h6> Like</h6>
-                    <div>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-[35px] text-center">
-                <button
-                  onClick={() => navigate("/details")}
-                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
-                >
-                  Add To Cart
-                </button>
-              </div>
-            </div>
-            <div className="mx-[10px] mb-[45px]">
-              <div className="bg-[#fff] p-[15px] ">
-                <div className="flex justify-center my-[45px]">
-                  <img
-                    src="/images/w5.png"
-                    className="h-[175px]"
-                    alt="watches"
-                  />
-                </div>
-                <div className="flex justify-between text-center font-bold">
-                  <div>
-                    <h6>Men's Watch</h6>
-                    <h5>$ 300</h5>
-                  </div>
-                  <div>
-                    <h6> Like</h6>
-                    <div>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-[35px] text-center">
-                <button
-                  onClick={() => navigate("/details")}
-                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
-                >
-                  Add To Cart
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg-[#f1f1f1] mb-[45px]">
-        <div className="w-[1170px] max-w-full m-auto  ">
-          <div className="mb-[45px]">
-            <h3 className="text-[24px] py-[10px] px-[20px] font-bold text-white bg-[#19c880] inline-block ">
-              Top Sale Watches
-            </h3>
-          </div>
-          <div className="grid grid-cols-3  ">
-            <div className="mx-[10px] mb-[45px]">
-              <div className="bg-[#fff] p-[15px] ">
-                <div className="flex justify-center my-[45px]">
-                  <img
-                    src="/images/w6.png"
-                    className="h-[175px]"
-                    alt="watches"
-                  />
-                </div>
-                <div className="flex justify-between text-center font-bold">
-                  <div>
-                    <h6>Men's Watch</h6>
-                    <h5>$ 300</h5>
-                  </div>
-                  <div>
-                    <h6> Like</h6>
-                    <div>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-[35px] text-center">
-                <button
-                  onClick={() => navigate("/details")}
-                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
-                >
-                  Add To Cart
-                </button>
-              </div>
-            </div>
-            <div className="mx-[10px] mb-[45px]">
-              <div className="bg-[#fff] p-[15px] ">
-                <div className="flex justify-center my-[45px]">
-                  <img
-                    src="/images/w7.png"
-                    className="h-[175px]"
-                    alt="watches"
-                  />
-                </div>
-                <div className="flex justify-between text-center font-bold">
-                  <div>
-                    <h6>Men's Watch</h6>
-                    <h5>$ 300</h5>
-                  </div>
-                  <div>
-                    <h6> Like</h6>
-                    <div>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-[35px] text-center">
-                <button
-                  onClick={() => navigate("/details")}
-                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
-                >
-                  Add To Cart
-                </button>
-              </div>
-            </div>
-            <div className="mx-[10px] mb-[45px]">
-              <div className="bg-[#fff] p-[15px] ">
-                <div className="flex justify-center my-[45px]">
-                  <img
-                    src="/images/w8.png"
-                    className="h-[175px]"
-                    alt="watches"
-                  />
-                </div>
-                <div className="flex justify-between text-center font-bold">
-                  <div>
-                    <h6>Men's Watch</h6>
-                    <h5>$ 300</h5>
-                  </div>
-                  <div>
-                    <h6> Like</h6>
-                    <div>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                      <i className="text-[yellow] fa-solid fa-star"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-[35px] text-center">
-                <button
-                  onClick={() => navigate("/details")}
-                  className=" px-[30px] text-white rounded-xs cursor-pointer py-[10px] bg-[#8019c8] hover:bg-[#541184]"
-                >
-                  Add To Cart
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
       <div className="py-[90px]">
         <div className="w-[1170px] m-auto">
           <div>

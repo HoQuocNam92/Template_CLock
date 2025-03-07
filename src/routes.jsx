@@ -3,7 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import MainLayout from "@components/layout/MainLayout";
 import HomePage from "@pages/HomePage";
 import ProductDetail from "@pages/ProductDetail";
-const routes = () => {
+import CartPage from "@pages/CartPage"; // Thêm trang giỏ hàng
+
+const RoutesConfig = () => {
   return (
     <Routes>
       <Route
@@ -15,10 +17,18 @@ const routes = () => {
         }
       />
       <Route
-        path="/details"
+        path="/details/:id"
         element={
           <MainLayout>
             <ProductDetail />
+          </MainLayout>
+        }
+      />
+      <Route
+        path="/cart"
+        element={
+          <MainLayout>
+            <CartPage />
           </MainLayout>
         }
       />
@@ -26,4 +36,4 @@ const routes = () => {
   );
 };
 
-export default routes;
+export default RoutesConfig;

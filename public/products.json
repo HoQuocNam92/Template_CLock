@@ -12,5 +12,54 @@
     "price": "7,500,000 VND",
     "image": "/images/w2.png",
     "description": "Đồng hồ Samsung mới nhất với thiết kế sang trọng."
+  },
+  {
+    "id": "3",
+    "name": "Garmin Fenix 7",
+    "price": "15,000,000 VND",
+    "image": "/images/w3.png",
+    "description": "Đồng hồ GPS thể thao cao cấp với nhiều chế độ luyện tập."
+  },
+  {
+    "id": "4",
+    "name": "Huawei Watch GT 4",
+    "price": "5,900,000 VND",
+    "image": "/images/w4.png",
+    "description": "Đồng hồ thông minh bền bỉ, thời lượng pin lâu."
+  },
+  {
+    "id": "5",
+    "name": "Xiaomi Watch S1",
+    "price": "4,200,000 VND",
+    "image": "/images/w5.png",
+    "description": "Đồng hồ thông minh giá rẻ với nhiều tính năng theo dõi sức khỏe."
+  },
+  {
+    "id": "6",
+    "name": "Fitbit Versa 4",
+    "price": "5,000,000 VND",
+    "image": "/images/w6.png",
+    "description": "Đồng hồ thông minh hỗ trợ theo dõi sức khỏe và giấc ngủ."
+  },
+  {
+    "id": "7",
+    "name": "Amazfit GTR 4",
+    "price": "3,800,000 VND",
+    "image": "/images/w7.png",
+    "description": "Đồng hồ thông minh đẹp, pin trâu, nhiều tính năng thể thao."
+  },
+  {
+    "id": "8",
+    "name": "Fossil Gen 6",
+    "price": "6,000,000 VND",
+    "image": "/images/w8.png",
+    "description": "Đồng hồ Wear OS với thiết kế cổ điển, sang trọng."
+  },
+  {
+    "id": "9",
+    "name": "Casio G-Shock GBD-200",
+    "price": "3,500,000 VND",
+    "image": "/images/w9.png",
+    "description": "Đồng hồ thể thao bền bỉ, phù hợp với các hoạt động ngoài trời."
   }
 ]
